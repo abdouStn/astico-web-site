@@ -1,0 +1,61 @@
+
+
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent()  }} > les membres
+{% endblock %}
+
+{% block acceuil %}
+<section class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Liste des membres inscrits sur le site</h3>
+            </div>
+            <div class="panel-body">
+            	<table class="table"">
+            	<thead>
+		      	<tr>
+					<th align="center" valign="top">Prénom</th>
+					<th align="center" valign="top">Nom</th>
+					<th align="center" valign="top">Poste</th>
+					<th align="center" valign="top">Parcours</th>
+					<th align="center" valign="top">Contact</th>
+					<th align="center" valign="top">Photo</th>
+					<th align="center" valign="top"></th>
+				 </tr>
+				 </thead>
+    			 <tbody>
+		      	{% for membre in listMembres %}
+				 <tr class="success">
+				 	<td align="center" valign="top"> {{ membre.prenom }}  </td>
+				 	<td align="center" valign="top"> {{ membre.nom }} </td>
+				 	<td align="center" valign="top"> {{ membre.poste }} </td>
+				 	<td align="center" valign="top"> {{ membre.specialite }} </td>
+				 	<td align="center" valign="top"> <a href="mailto:{{ membre.email }}">ici</a> </td>
+				 	<td align="center" valign="top" class="avatar"> 
+				 		{% if membre.photo is not null %}
+        					<img src="{{ asset(membre.photo.webPath) }}" alt="{{ membre.photo.alt }}" width=35 hight=80> 
+      					{% else %}
+        					<img src="{{ asset('bundles/snsplateform/images/inconnu.jpeg') }}" alt="avatar" width=35 hight=80> 
+      					{% endif %} 
+      				</td>
+				 	<td align="center" valign="top"><a href="{{ path('sns_platform_admin_show_membre', {'id': membre.id}) }}" class="btn btn-info" alt="Voir"><i class="glyphicon glyphicon-info-sign"></i>  </a> 
+
+				 									{# On n'affiche le lien « modifier et supprimer » qu'à l'admin #}
+													{% if is_granted('ROLE_ADMIN') %}
+				 										<a href="{{ path('sns_platform_admin_edit_membre', {'id': membre.id}) }}" class="btn btn-default 						" alt="Modifier"><i class="glyphicon glyphicon-edit"></i>  </a>
+
+   				      								 	<a href="{{ path('sns_platform_admin_delete_membre', {'id': membre.id}) }}" class="btn btn-danger" alt="Supprimer "><i class="glyphicon glyphicon-remove-sign"></i> </a> 
+   				      								 {%endif%}
+   				      								 </td>
+				 </tr>
+				
+				 {% endfor %}
+				 </tbody>
+            	</table>
+            </div>
+          </div>
+        </section>
+
+{% endblock %}

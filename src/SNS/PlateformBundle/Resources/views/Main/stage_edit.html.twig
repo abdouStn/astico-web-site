@@ -1,0 +1,16 @@
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > modifier stage
+{% endblock %}
+
+{% block acceuil %} 
+   <section class="col-sm-12">
+
+	<h3>Modification d'un stage</h3>
+	{{ include("SNSPlateformBundle:Main:formulaire_stage.html.twig") }}
+   
+   </section>
+
+{% endblock %}
+

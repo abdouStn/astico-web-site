@@ -1,0 +1,28 @@
+{% extends "::layout_sns.html.twig" %}
+
+{% block title %}
+    {{ parent() }} > Erreur404
+{% endblock %}
+
+{% block body %}
+    <section class="col-sm-12">
+        
+        <div class="panel panel-default">
+          
+            <div class="panel-heading">
+              <h3 class="panel-title"> <u> <b> Warning </b> </u> </h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-warning">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <p><strong>Erreur404</strong> Cette page est introuvable, jeune Astico !!! </p>
+                    <p>Si tu penses que c'est une erreur interne, n'hesites pas de contacter l'administrateur du site. </p>
+                </div>
+                <div class="navbar-right">
+                    <img src="{{ asset('bundles/snsplateform/images/fache.jpg') }}" alt="image phymed" width=45%> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

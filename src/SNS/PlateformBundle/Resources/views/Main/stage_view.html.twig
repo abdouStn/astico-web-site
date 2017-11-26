@@ -1,0 +1,57 @@
+
+
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > stage view
+{% endblock %}
+
+{% block acceuil %}
+<section class="col-sm-12">
+	    
+          <div class="panel panel-default">
+          
+            <div class="panel-heading">
+              <h3 class="panel-title"> <b>{{ stage.intutile }} </b></h3>
+            </div>
+            <div class="panel-body">
+               	
+            	
+		      	<div class="well well-lg">
+		      		<div class="navbar-right avatar img-circle img-thumbnail">
+					    {% if stage.auteur.photo is not null %}
+				        	<img src="{{ asset(stage.auteur.photo.webPath) }}" alt="{{ stage.auteur.photo.alt }}" width=60 hight=120> 
+				      	{% else %}
+				        	<img src="{{ asset('bundles/snsplateform/images/inconnu.jpeg') }}" alt="avatar" width=90 hight=180> 
+				      	{% endif %}
+					</div>
+
+		      		<b>Soumis par:</b> {{ stage.auteur.nom }} {{ stage.auteur.prenom }} <b>le</b> {{ stage.dateSoumission |date('d/m/Y') }} <br/> 
+		      		<b>Date de debut du stage:</b> {{ stage.dateDebut|date('d/m/Y') }} <br/>
+		      		<b>Durée :</b> {{ stage.duree }} mois <br/>
+		      		<b>Profile:</b> {{ stage.parcours }} <br/>
+		      		<p> <b>Description du poste:</b> <br/>
+		      			{{ stage.description }}
+		      		</p>
+		      		
+		      		{% if stage.filename != "vide" %}
+		      		<b> Fichier attaché: </b> <a href="{{ asset(stage.webPath) }}">[ici]</a> <br/>
+		      		{% endif %}
+		      		
+		      	</div>
+		           <p class=" navbar-right">
+		      		<a href="{{ path('sns_plateform_add_stage') }}" class="btn btn-info navbar-right">Poster un stage</a>
+		      		
+		      		{# On n'affiche le lien « modifier et supprimer » qu'à l'admin #}
+					{% if is_granted('ROLE_ADMIN') %}
+						<a href="{{ path('sns_platform_edit_stage', {'id': stage.id}) }}" class="btn btn-default">
+      						<i class="glyphicon glyphicon-edit"></i> Modifier  </a>
+   				      	<a href="{{ path('sns_platform_delete_stage', {'id': stage.id}) }}" class="btn btn-danger">
+      						<i class="glyphicon glyphicon-trash"></i> Supprimer </a>
+      				{%endif%}
+					</p>
+            </div>
+          </div>
+        </section>
+
+{% endblock %}

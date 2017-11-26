@@ -1,0 +1,32 @@
+
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > Supprimer document
+{% endblock %}
+
+{% block acceuil %} 
+   <section class="col-sm-12">
+
+	<h3>Suppression d'un document</h3>
+	
+		<p>
+	    		Etes-vous certain de vouloir supprimer le document "{{ document.descriptif }}" ?
+		</p>
+
+		  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+		  <form action="{{ path('sns_platform_delete_document', {'id': document.id}) }}" method="post">
+			    <a href="{{ path('sns_plateform_document') }}" class="btn btn-default">
+					<i class="glyphicon glyphicon-chevron-left"></i>
+					Retour aux docs
+			    </a>
+			    {# Ici j'ai écrit le bouton de soumission à la main #}
+			    <input type="submit" value="Supprimer" class="btn btn-danger" />
+			    {# Ceci va générer le champ CSRF #}
+			    {{ form_rest(form) }}
+		  </form>
+   
+   </section>
+
+{% endblock %}
+

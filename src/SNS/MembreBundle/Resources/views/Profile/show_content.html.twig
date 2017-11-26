@@ -1,0 +1,32 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show well">
+	<div class="navbar-right avatar img-circle img-thumbnail">
+	    {% if user.photo is not null %}
+        <img src="{{ asset(user.photo.webPath) }}" alt="{{ user.photo.alt }}" width=90 hight=180> 
+      {% else %}
+        <img src="{{ asset('bundles/snsplateform/images/inconnu.jpeg') }}" alt="avatar" width=90 hight=180> 
+      {% endif %}
+	</div>
+    <p><b>{{ 'Login '|trans }}</b>: {{ user.username }}</p>
+    <p><b>{{ 'Nom'|trans }}</b>: {{ user.nom }}</p>
+    <p><b>{{ 'Prenom '|trans }}</b>: {{ user.prenom }}</p>
+    <p><b>{{ 'Email'|trans }}</b>: <a href="mailto:{{ user.email }}"">{{ user.email }} </a></p>
+    <p><b>{{ 'Anniversaire '|trans }}</b>: {{ user.anniversaire|date('d/m') }}</p>
+    <p><b>{{ 'Parcours '|trans }}</b>: {{ user.specialite }}</p>
+    <p><b>{{ 'Niveau de priorité'|trans }}</b>: 	{% if is_granted('ROLE_ADMIN') %}
+    											Administrateur 
+											{% elseif is_granted('ROLE_USER') %}
+											    Utilisateur
+											{% else %}
+											    Anonyme
+											{% endif %}</p>
+    <p><b>{{ 'Date de dernière connection'|trans }}</b>: {{ user.lastLogin |date('d/M/Y H:i:s')}}</p>
+    <p class=" navbar-right">
+		      		<a href="{{ path('fos_user_profile_edit') }}" class="btn btn-default" alt="Modifier Compte">
+      					<i class="glyphicon glyphicon-edit">Compte</i>  </a>
+   				      <a href="{{ path('fos_user_change_password') }}" class="btn btn-default" alt="Modifier mot de passe">
+      					<i class="glyphicon glyphicon-edit">Mot de passe</i> </a> 
+	</p>
+	<i>je peux modifier mon compte ici =></i>
+</div>

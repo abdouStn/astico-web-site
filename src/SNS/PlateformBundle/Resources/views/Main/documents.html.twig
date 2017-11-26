@@ -1,0 +1,48 @@
+
+
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > documents
+{% endblock %}
+
+{% block acceuil %}
+<section class="col-sm-12">
+	   
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Documents postés</h3>
+            </div>
+            <div class="panel-body">
+            	<a href="{{ path('sns_plateform_add_document') }}" class="btn btn-info navbar-right">Ajouter un fichier</a><br/><br/>
+            	{% for doc in listDocuments %}
+		      	<div class="well well-lg">
+		      		
+		      		<b> <u> {{ doc.descriptif}}</u></b> <a href="{{ asset(doc.webPath) }} ">[<i class="glyphicon glyphicon-circle-arrow-down"></i>Télécharger]</a> <br/>
+		      		     <b>Posté le:</b> {{ doc.date|date('d/m/Y') }}  <b>par:</b> {{ doc.auteur.nom }} {{ doc.auteur.prenom }}  
+		      		
+            {# On n'affiche le lien « modifier et supprimer » qu'à l'admin #}
+          {% if is_granted('ROLE_ADMIN') %}		      		
+		      		<p class=" navbar-right">
+		      		<a href="{{ path('sns_platform_edit_document', {'id': doc.id}) }}" class="btn btn-default" alt="Modifier">
+      					<i class="glyphicon glyphicon-edit"></i>  </a>
+   				      <a href="{{ path('sns_platform_delete_document', {'id': doc.id}) }}" class="btn btn-danger" alt="Supprimer ">
+      					<i class="glyphicon glyphicon-trash"></i> </a>
+					    </p>
+            {%endif%}
+		      	</div>
+		      {% endfor %}
+      		
+      	<ul class="pagination">
+		  {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+	        {% for p in range(1, nbPages) %}
+               <li {% if p == page %} class="active" {% endif %} ><a href="{{ path('sns_plateform_document',{'page': p}) }}">{{ p }}</a> </li>
+              {% endfor %}
+            </ul>
+      		
+            </div>
+          </div>
+          
+        </section>
+	
+{% endblock %}

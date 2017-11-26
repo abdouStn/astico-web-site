@@ -1,0 +1,136 @@
+sns_plateform_homepage:
+    path:     /
+    defaults: { _controller: SNSPlateformBundle:Main:index }
+
+sns_plateform_contact:
+    path:     /contact
+    defaults: { _controller: SNSPlateformBundle:Main:contact }
+
+sns_plateform_master:
+    path:      /master
+    defaults:  { _controller: SNSPlateformBundle:Main:master }
+    
+sns_plateform_master_bcd:
+    path:      /bcd
+    defaults:  { _controller: SNSPlateformBundle:Main:masterBcd }
+    
+sns_plateform_master_ids:
+    path:      /master/ids
+    defaults:  { _controller: SNSPlateformBundle:Main:masterIds }
+    
+sns_plateform_master_phymed:
+    path:      /master/phymed
+    defaults:  { _controller: SNSPlateformBundle:Main:masterPhymed }    
+
+sns_plateform_qui_sommes_nous:
+    path:      /master/presentation
+    defaults:  { _controller: SNSPlateformBundle:Main:presentation }    
+    
+sns_plateform_bureau:
+    path:      /bureau
+    defaults:  { _controller: SNSPlateformBundle:Main:bureau }  
+
+sns_plateform_membres:  
+    path:      /membres
+    defaults:  { _controller: SNSPlateformBundle:Main:membres }  
+
+sns_plateform_reseau_ancien:  
+    path:      /reseau_des_anciens
+    defaults:  { _controller: SNSPlateformBundle:Main:anciens }  
+
+sns_plateform_stage:
+    path:      /stages/{page}
+    defaults:  { _controller: SNSPlateformBundle:Main:stage, page: 1 }
+    requirements:
+        page: \d*    
+        
+sns_plateform_add_stage:
+    path:      /stage/add
+    defaults:  { _controller: SNSPlateformBundle:Main:addStage }    
+
+sns_plateform_view_stage:
+    path:      /stage/view/{id}
+    defaults:  { _controller: SNSPlateformBundle:Main:viewStage }
+    requirements:
+        id: \d+
+        
+sns_platform_delete_stage:
+    path:      /stage/delete/{id}
+    defaults:  { _controller: SNSPlateformBundle:Main:deleteStage }
+    requirements:
+        id: \d+
+
+sns_platform_edit_stage:
+    path:      /stage/edit/{id}
+    defaults:  { _controller: SNSPlateformBundle:Main:editStage }
+    requirements:
+        id: \d+
+
+sns_plateform_document:
+    path:      /documents/{page}
+    defaults:  { _controller: SNSPlateformBundle:Main:document, page: 1 }
+    requirements:
+        page: \d*    
+
+sns_plateform_add_document:
+    path:      /document/add
+    defaults:  { _controller: SNSPlateformBundle:Main:addDocument }    
+
+sns_platform_delete_document:
+    path:      /document/delete/{id}
+    defaults:  { _controller: SNSPlateformBundle:Main:deleteDocument }
+    requirements:
+        id: \d+
+
+sns_platform_edit_document:
+    path:      /document/edit/{id}
+    defaults:  { _controller: SNSPlateformBundle:Main:editDocument }
+    requirements:
+        id: \d+
+
+sns_plateform_annonce:
+    path:      /annonces/{page}
+    defaults:  { _controller: SNSPlateformBundle:Main:annonce, page: 1 }
+    requirements:
+        page: \d*    
+
+sns_plateform_add_annonce:
+    path:      /annonce/add
+    defaults:  { _controller: SNSPlateformBundle:Main:addAnnonce }    
+
+
+sns_plateform_view_annonce:
+    path:      /annonce/view/{id}
+    defaults:  { _controller: SNSPlateformBundle:Main:viewAnnonce }
+    requirements:
+        id: \d+
+        
+sns_platform_delete_annonce:
+    path:      /annonce/delete/{id}
+    defaults:  { _controller: SNSPlateformBundle:Main:deleteAnnonce }
+    requirements:
+        id: \d+
+
+sns_platform_edit_annonce:
+    path:      /annonce/edit/{id}
+    defaults:  { _controller: SNSPlateformBundle:Main:editAnnonce }
+    requirements:
+        id: \d+
+
+sns_platform_admin_edit_membre:
+    path:      /membres/edit/{id}
+    defaults:  { _controller: SNSMembreBundle:Profile:adminEdit }
+    requirements:
+        id: \d+
+
+sns_platform_admin_show_membre:
+    path:      /membres/show/{id}
+    defaults:  { _controller: SNSMembreBundle:Profile:adminShow }
+    requirements:
+        id: \d+
+
+sns_platform_admin_delete_membre:
+    path:      /membres/delete/{id}
+    defaults:  { _controller: SNSMembreBundle:Profile:adminDelete }
+    requirements:
+        id: \d+

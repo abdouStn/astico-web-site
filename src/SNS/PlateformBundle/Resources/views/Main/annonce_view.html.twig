@@ -1,0 +1,46 @@
+
+
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > annonce view
+{% endblock %}
+
+{% block acceuil %}
+<section class="col-sm-12">
+	    
+          <div class="panel panel-default">
+          
+            <div class="panel-heading">
+              <h3 class="panel-title"> <u> <b>{{ annonce.titre }} </b> </u> </h3>
+            </div>
+            <div class="panel-body">
+               	
+            	
+		      	<div class="well well-lg">
+		      		
+		      		<b>Proposée par:</b> {{ annonce.auteur.nom }} {{ annonce.auteur.prenom }} <br/>
+		      		<b>le</b> {{ annonce.date |date('d/m/Y') }} <br/> 
+		      		
+		      		<p> <b>Description de l'annonce:</b> <br/>
+		      			{{ annonce.description }}
+		      		</p>
+		      		
+
+		      		
+		      	</div>
+		           <p class=" navbar-right">
+		      		<a href="{{ path('sns_plateform_add_annonce') }}" class="btn btn-info navbar-right">Ajouter une annonce</a>
+		      		{# On n'affiche le lien « modifier et supprimer » qu'à l'admin #}
+					{% if is_granted('ROLE_ADMIN') %}
+		      			<a href="{{ path('sns_platform_edit_annonce', {'id': annonce.id}) }}" class="btn btn-default">
+      						<i class="glyphicon glyphicon-edit"></i> Modifier  </a>
+   				      	<a href="{{ path('sns_platform_delete_annonce', {'id': annonce.id}) }}" class="btn btn-danger">
+      						<i class="glyphicon glyphicon-trash"></i> Supprimer </a>
+      				{%endif%}
+					</p>
+            </div>
+          </div>
+        </section>
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="well">
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form-horizontal' } }) }}
+    
+    {# form_widget(form) #}
+    <!--<div>
+        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    </div> -->
+	{# form_end(form) #}
+
+
+
+
+		{# Les erreurs générales du formulaire. #}
+	    {{ form_errors(form) }}
+
+	    <div class="form-group">
+			{# Génération du label. #}
+			{{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.nom) }}
+
+			<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+	    
+	    <div class="form-group">
+			{# Génération du label. #}
+			{{ form_label(form.prenom, "Prenom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.prenom) }}
+
+			<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>	      
+
+	    <div class="form-group">
+			{# Génération du label. #}
+			{{ form_label(form.specialite, "Parcours", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.specialite) }}
+
+			<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.specialite, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+
+	    <div class="form-group">
+			{# Génération du label. #}
+			{{ form_label(form.anniversaire, "Anniversaire", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.anniversaire) }}
+
+			<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.anniversaire, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+
+
+	    <div class="form-group">
+			{# Génération du label. #}
+			{{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.email) }}
+
+			<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+
+	    <div class="form-group">
+			{# Génération du label. #}
+			{{ form_label(form.username, "Login", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.username, {'label_attr': {'class': 'alert alert-danger'}}) }}
+
+			<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+
+	    <div class="form-group">
+		    	{# Génération du label. #}
+			{{ form_label(form.photo, "Photo", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.photo) }}
+	    		
+	    		<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.photo) }}
+			</div>
+	    </div>
+
+	    <div class="form-group">
+		    	{# Génération du label. #}
+			{{ form_label(form.current_password, "Mot de passe actuel", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.current_password) }}
+	    		
+	    		<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.current_password) }}
+			</div>
+	    </div>
+
+
+		{# Génération du label + error + widget pour un champ en une commande#}
+	      {# form_row(form.duree) #}  
+	  
+	  
+	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+	  {# form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) #}
+	  <div>
+        <input type="submit" value="{{ 'Modifier'|trans }}" />
+       </div>
+
+	  {# Génération automatique des champs pas encore écrits.
+	     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+	     et tous les champs cachés (type « hidden »). #}
+	  {{ form_rest(form) }}
+	  
+	  {# Fermeture de la balise <form> du formulaire HTML #}
+	  {{ form_end(form) }}
+	
+</div>

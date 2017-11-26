@@ -1,0 +1,131 @@
+{# app/Resources/views/layout_sns.html.twig #}
+<!DOCTYPE HTML>
+<html>
+
+ <head> 
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	  <title>{% block title %}SNS Plateforme{% endblock %}</title>
+	  <link href="{{ asset('bundles/snsplateform/images/astico2.png') }}" rel="icon" type="image/x-icon" />
+	  {% block stylesheets %}
+	    {# On charge le CSS de bootstrap depuis le site directement #}
+	    <link rel="stylesheet" href="http://bootswatch.com/cerulean/bootstrap.min.css"> 
+	    			<!-- cerulean superhero flatly journal simplex spacelab -->
+	    
+	    
+	  {% endblock %}
+	  
+	  {% block caroussel %}
+	  
+  	  {% endblock %}
+ </head>
+
+ <body> 
+   <div class="container">
+   	
+   	
+   	<header class="row">
+        
+        <div class="col-lg-12">
+
+	    <img src="{{ asset('bundles/snsplateform/images/astico2.png') }}" alt="image de fond astico" width=10%> 
+          <img src="{{ asset('bundles/snsplateform/images/fond.png') }}" alt="image de fond" width=900 height=100> 
+          {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+          		
+	    		<p class="navbar-right">
+	    			<a href="{{ path('fos_user_profile_show') }}" title="Voir/Modifier mon profil"> <span class="btn btn-info"> <i class="glyphicon glyphicon-user"></i>  {{ app.user.prenom }} {{ app.user.nom }} </span> </a>
+		    				    
+		   		<a class=" btn btn-danger" href="{{ path('fos_user_security_logout') }}" title="Déconnexion"><span class="glyphicon glyphicon-off"></span></a>
+
+	   		</p>
+	   	{% else %}
+	   		<p class="navbar-right">
+
+		   		<a class="btn btn-primary " href="{{ path('fos_user_security_login') }}" title="Connexion"><span class="glyphicon glyphicon-user">Connexion</span></a><br/>
+				<a class="btn btn-success " href="{{ path('fos_user_registration_register') }}" title="S'inscrire"><span class="glyphicon glyphicon-question-sign"></span> > S'inscrire </a>
+
+	   		</p>
+		{% endif %}	
+	   
+        </div>
+	 
+        
+      </header>
+   	
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="{{ path('sns_plateform_homepage') }}">ASTICO</a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+            <li class="active"> <a href="{{ path('sns_plateform_homepage') }}"> <span class="glyphicon glyphicon-home"></span> Accueil </a> </li>
+            <li> <a href="{{ path('sns_plateform_master') }}"><span class="glyphicon glyphicon-book"></span> Notre Master </a> </li>
+            <li> <a href="{{ path('sns_plateform_qui_sommes_nous') }}"> <span class="glyphicon glyphicon-headphones"></span> Qui Sommes Nous </a> </li>
+         {# if is_granted("IS_AUTHENTICATED_REMEMBERED") #} 
+    
+    		<li><a href="{{ path('sns_plateform_stage') }}"><span class="glyphicon glyphicon-education"></span> Stages </a></li>
+    		<li><a href="{{ path('sns_plateform_document') }}"><span class="glyphicon glyphicon-file"></span> Documents </a></li>
+   
+		 {# endif #}
+
+          <li> <a href="{{ path('sns_plateform_reseau_ancien') }}" title="Bientôt disponible"> <span class="glyphicon glyphicon-signal"></span> Réseau des anciens </a> </li>
+          <li> <a href="{{ path('sns_plateform_contact') }}"> <span class="glyphicon glyphicon-pencil"></span> Nous contacter </a> </li>  
+          		
+	   
+		
+	    </div>
+	  </div>
+	</nav>
+      
+      <div class="row col-sm-12">
+      	<div id="content" class="col-sm-9">
+        	{% block body %}
+        	{% endblock %}
+      </div>
+      
+	<section class="col-sm-3">
+	   
+		 <form class="navbar-form inline-form" role="form">
+            <div class="form-group">
+		    <input type="search" class="input-sm form-control" placeholder="Recherche">
+              <button type="submit" class="btn btn-primary btn-sm glyphicon glyphicon-search"></button>
+            </div>
+		</form>
+	   
+		
+		{% block annonce %}
+        	{% endblock %}
+	
+	</section>
+	
+  </div>
+      <footer class="row col-sm-12">
+        <hr/>
+        <div class="panel panel-body">
+          <p>Copyright © {{ 'now'|date('Y') }} Astico. Tous droits réservés. <i>version 0.1.0</i></p>
+          <p>Nos partenaires: 
+              <a href="http://www.umontpellier.fr/" target=_blank><img src="{{ asset('bundles/snsplateform/images/um.png') }}" alt="umontpellier" width=5%></a> | 
+		  <a href="https://www.mines-telecom.fr/" target=_blank><img src="{{ asset('bundles/snsplateform/images/mines_telecom.png') }}" alt="mines telecom" width=5%></a> | 
+		  <a href="http://www.telecom-montpellier.fr/" target=_blank><img src="{{ asset('bundles/snsplateform/images/tic.jpg') }}" alt="telecom-montpellier" width=4%></a> 
+	    </p>
+        </div>
+      </footer>
+    </div>
+
+
+
+ </body>
+
+</html>
+
+
+

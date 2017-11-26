@@ -1,0 +1,102 @@
+{# Cette vue n'hérite de personne, elle sera incluse par d'autres vues qui,
+   elles, hériteront probablement du layout. Je dis « probablement » car,
+   ici pour cette vue, on n'en sait rien et c'est une info qui ne nous concerne pas. #}
+
+{# On peut afficher un simple formulaire en faisant juste  {{ form(form) }} #}
+
+	<div class="well">
+	  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+	    {# Les erreurs générales du formulaire. #}
+	    {{ form_errors(form) }}
+
+	    <div class="form-group">
+			{# Génération du label. #}
+			{{ form_label(form.intutile, "Intitulé", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+			{# Affichage des erreurs pour ce champ précis. #}
+			{{ form_errors(form.intutile) }}
+
+			<div class="col-sm-5">
+			  {# Génération de l'input. #}
+			  {{ form_widget(form.intutile, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+	    
+	    {# pour le champ date #}
+	    <div class="form-group">
+			{{ form_label(form.dateDebut, "Date de debut", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_errors(form.dateDebut) }}
+			<div class="col-sm-5">
+			  {{ form_widget(form.dateDebut, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+	      
+	    {# Idem pour le champ duree . #}
+	    <div class="form-group">
+			{{ form_label(form.duree, "Durée (en mois)", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_errors(form.duree) }}
+			<div class="col-sm-5">
+			  {{ form_widget(form.duree, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+	    
+	    <div class="form-group">
+			{{ form_label(form.lieu, "Adresse complète", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_errors(form.lieu) }}
+			<div class="col-sm-5">
+			  {{ form_widget(form.lieu, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+	    
+	    <div class="form-group">
+			{{ form_label(form.contacte, "Contact", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_errors(form.contacte) }}
+			<div class="col-sm-5">
+			  {{ form_widget(form.contacte, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+	    
+	    <div class="form-group">
+			{{ form_label(form.parcours, "Parcours concerné", {'label_attr':  {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_errors(form.parcours) }}
+			<div class="col-sm-5">
+			  {{ form_widget(form.parcours, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+	    	    
+	    {# Idem pour le champ contenu . #}
+	    <div class="form-group">
+			{{ form_label(form.description, "Description du stage", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_errors(form.description) }}
+			<div class="col-sm-5">
+			  {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+			</div>
+	    </div>
+	    
+	    <div class="form-group">
+			{{ form_label(form.file, "Un fichier ?", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+			{{ form_errors(form.file) }}
+			<div class="col-sm-5">
+			  {{ form_widget(form.file)}}
+			</div>
+	    </div>
+
+	     
+		{# Génération du label + error + widget pour un champ en une commande#}
+	      {# form_row(form.duree) #}  
+	  
+	  
+	  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+	  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+	  {# Génération automatique des champs pas encore écrits.
+	     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+	     et tous les champs cachés (type « hidden »). #}
+	  {{ form_rest(form) }}
+	  
+	  {# Fermeture de la balise <form> du formulaire HTML #}
+	  {{ form_end(form) }}
+	
+	</div>
+

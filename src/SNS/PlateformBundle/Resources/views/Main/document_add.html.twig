@@ -1,0 +1,16 @@
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > ajout document
+{% endblock %}
+
+{% block acceuil %} 
+   <section class="col-sm-12">
+
+	<h3>Formulaire d'ajout d'un document</h3>
+	{{ include("SNSPlateformBundle:Main:formulaire_document.html.twig") }}
+   
+   </section>
+
+{% endblock %}
+

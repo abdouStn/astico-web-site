@@ -1,0 +1,72 @@
+
+
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > présentation
+{% endblock %}
+
+{% block acceuil %}
+	<section class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Présentation</h3>
+            </div>
+          <div class="panel-body">
+          	  <a href="{{ path('sns_plateform_bureau') }}" class="btn btn-info navbar-right">Le bureau actuel</a>
+          	  
+          	   <a href="{{ path('sns_plateform_membres') }}" class="btn btn-info navbar-right">Les membres inscrits</a>
+          	  
+          	  <h4>AsTICo, d'où vient ce nom ?</h4>
+              <div class="well well-lg">
+	    Association du Master Sciences et Numérique pour la Santé. Anciennement TIC et Santé, voici l'explication de ce nom si étrange.<br/>
+     	    <b>AsTICo mais kesaco ? </b> <br/>
+
+		<b>As</b> : Parce que c'est avant tout une association ! <br/>
+		<b>TIC</b> : Vous ne le savez peut être pas encore,maisà l'époque où l'association a été créée (et oui ça remonte  à 2014) le master s'appelait TIC & Santé.<br/>
+		<b>O</b> : O pour laisser libre cours à votre imaginaire…<br/>
+
+		Maintenant que les présentations sont faites, passons aux choses sérieuses.
+              </div>
+              
+              <h4>Nos objectifs & notre projet !</h4>
+              
+              <div class="well well-lg">
+	<p> Qui dit asso de filière dit soirée avec ou sans bière. Parce qu'une bonne cohésion entre étudiant(e)s rend les cours plus amusants.<br/>
+
+	<b>Une asso c'est cool mais pourquoi faire ?</b> <br/>
+C'est une très bonne question Bryan/Kevin ! (rayer les mentions inutiles) <br/>
+
+Figures-toi que l'on a des idées (Même si l'on a pas fait grand-chose jusqu'à présent : à chaque grand homme ses grands projets)<br/>
+
+Si tu adhères à notre asso tu auras le droit à : <br/>
+		<ul>
+			<li>Un annuaire des anciens  </li>
+			<li>Les cours  </li>
+			<li> Des annales  </li>
+			<li>une super liste de stage </li>
+		</ul>
+(de quoi t'assurer d'avoir ton année)<br/>
+
+Si tu es un fêtard et que tu es sage alors tu auras accès aux méga réductions dans nos Bars et Boites partenaires (à abuser avec modération)
+</p>
+<p>
+Si tu deviens un AsTICo frileux(se), tu auras des réductions non négligeables sur les PullAsTICo (c'est qui stico?).<br/>
+
+En tant qu'AsTICo à temps plein, tu auras la possibilité de faire de la pub au près des petits jeunes de L3. <br/>
+
+<b>Vous nous avez parlé de vos objectifs, quand est-il de votre projet ? </b><br/>
+
+Merci à toi jeune Padastico ! Quand on sera une super asso (Super AsTICo), on aimerait vachement beaucoup organiser des soirées conférences et débats sur les thématiques du Master (parce que débattre c'est cool). <br/>
+
+Le monsieur a dit au début que le nom de l'asso dépendait du nom du master, comme le master change de nom, est ce que votre asso va changer de nom ?<br/>
+- <b>Non.</b>
+</p>
+		</div>
+            
+                               
+          </div>
+        </div>
+    </section>
+
+{% endblock %}

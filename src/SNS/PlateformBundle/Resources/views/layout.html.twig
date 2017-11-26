@@ -1,0 +1,31 @@
+{# src/SNS/PlatformBundle/Resources/views/layout.html.twig #}
+
+{% extends "::layout_sns.html.twig" %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+
+{% block caroussel %}
+  {{ parent() }}
+{% endblock %}
+
+{% block annonce %}
+   
+{% endblock  %}
+
+
+{% block body %}
+
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+  <h3>Association étudiante du master SNS Montpellier</h3>
+
+  <hr>
+
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {% block acceuil %}
+  {% endblock %}
+
+{% endblock %}	
+

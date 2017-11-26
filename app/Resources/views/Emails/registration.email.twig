@@ -1,0 +1,29 @@
+{% trans_default_domain 'FOSUserBundle' %}
+	{% block subject %}
+		{# autoescape false #}
+			Validation de votre inscription.
+		{# endautoescape #}
+	{% endblock %}
+
+{% block body_text %}
+	{% autoescape false %}
+		
+		
+	{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+
+	{# include 'Registration/email.html.twig' #}
+	Bonjour {{user.prenom}},
+		<p>Vous venez de vous inscrire sur le site de l'association étudiante "Astico" du Master Science et Numérique pour la Santé de l'Université de Montpellier.</p>
+		<p>Vous devez valider votre inscription en suivant ce lien {{ confirmationUrl }} .</p>
+		<p>Au fait, ravi de vous compter parmis nous.<br/>
+		Cordialement.<br/>
+		--- <br/>
+		<a href="mailto:abdouldiallo30@yahoo.fr">Abdoulaye DIALLO</a> <i>pour l'équipe Astico</i>.</p><br/>
+	<img src="{{ absolute_url(asset('bundles/snsplateform/images/astico2.png')) }}" alt="logo_astico" width=10%>
+	<br/>
+	<i>Ceci est un message automatique. Merci de ne pas y répondre directement.</i><br/>
+	<i>Si vous n'êtes pas à l'origine de cette action, merci d'ignorer ce message. </i>
+{% endblock %}

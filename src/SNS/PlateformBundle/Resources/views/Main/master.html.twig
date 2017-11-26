@@ -1,0 +1,75 @@
+
+
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > master
+{% endblock %}
+
+{% block acceuil %}
+	<section class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a href="http://sns.edu.umontpellier.fr/"><h3 class="panel-title">Le master Sciences et Numérique pour la Santé </h3> </a>
+            </div>
+          <div class="panel-body">
+          	  
+          	  <div class="well well-lg">
+              Depuis 2010, les Facultés de Médecine et des Sciences de l’Université de Montpellier, l’Institut Mines-Télécom et Mines Alès se sont associés pour concevoir des parcours de formations pluridisciplinaires et innovants dans le domaine des  Technologies de l’Information et de la Communication (TIC) appliquées à la Santé.
+
+Former des professionnels maitrisant les TIC supports de la médecine et de la santé numériques est l’objectif de l’offre de formations TIC & Santé Montpellier.
+
+Aujourd’hui, l’offre de formation s’articule autour d’un Diplôme d’Université en Télémédecine et d’un Master Sciences et Numérique pour la Santé de l’Université de Montpellier.
+
+
+		</div>
+		
+		<div class="col-lg-12">
+		Ce master est composé de trois parcours :<br/>
+              <div class="col-lg-4">
+             	<div class="panel panel-success">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><a href="{{ path('sns_plateform_master_bcd') }}">Bioinformatique, Connaissances, Données (BCD)</a></h3>
+			  </div>
+			  <div class="panel-body">
+			    <img src="{{ asset('bundles/snsplateform/images/bcd.png') }}" alt="image bcd" width=100%> 
+			  </div>
+			 </div>
+		   </div>
+
+		  <div class="col-lg-4">
+		      <div class="panel panel-success">
+		  	  <div class="panel-heading">
+		    		<h3 class="panel-title"><a href="{{ path('sns_plateform_master_ids') }}">Ingénierie des Dispositifs de Santé (IDS)</a></h3>
+		  	  </div>
+		  	<div class="panel-body">
+		    		<img src="{{ asset('bundles/snsplateform/images/ids.png') }}" alt="image ids" width=55%> 
+		  	</div>
+		     </div>
+		   </div>
+
+               <div class="col-lg-4">
+             	<div class="panel panel-success">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><a href="{{ path('sns_plateform_master_phymed') }}">PHYsique bioMEDicale (PHYMED)</a></h3>
+			  </div>
+			  <div class="panel-body">
+			    <img src="{{ asset('bundles/snsplateform/images/phymed.png') }}" alt="image phymed" width=85%> 
+			  </div>
+			</div>
+		    </div>
+		</div>	
+		<div class="well well-lg">
+            Misant sur la complémentarité des formations d’ingénieur avec les spécialités des différents parcours du master, il est accessible en double diplôme Master et Ingénieur. Les étudiants sélectionnés suivent des parcours aménagés au terme desquels les élèves de l’Institut Mines-Télécom et de ses établissements partenaires ont la possibilité d’obtenir le master Sciences et Numérique pour la Santé de l’Université de Montpellier en plus de leur diplôme d’ingénieur tandis que les étudiants du master ont la possibilité d’obtenir un diplôme d’ingénieur d’une des écoles de l’Institut Mines-Télécom en plus de leur master. 
+            </div>
+            
+            <div class="well well-lg">
+             L’offre de formations TIC & Santé Montpellier s’adresse aux étudiants venant aussi bien du monde de l’informatique, de l’électronique et de l’automatique que de la physique, la biologie, la médecine, l’odontologie, ou la pharmacie. Depuis 2010, ce sont plus de 200 professionnels qui ont été formés dont près de 20% par la voie de la formation continue ou permanente. Les débouchés se situent principalement dans les entreprises technologiques, dans les sociétés de conseil et de service informatique et auprès des acteurs de la santé : milieu hospitalier, prestataires de soins, acteurs de l’assurance et de la prévention. 
+             </div>
+
+             <a href="http://sns.edu.umontpellier.fr/" target=_blank> Pour plus d'infos cliquez ici</a>
+          </div>
+        </div>
+    </section>
+
+{% endblock %}

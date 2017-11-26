@@ -1,0 +1,16 @@
+{% extends "SNSPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ parent() }} > modifier document
+{% endblock %}
+
+{% block acceuil %} 
+   <section class="col-sm-12">
+
+	<h3>Modification d'un document existant</h3>
+	{{ include("SNSPlateformBundle:Main:formulaire_document.html.twig") }}
+   
+   </section>
+
+{% endblock %}
+
